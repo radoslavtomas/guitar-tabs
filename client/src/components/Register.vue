@@ -1,12 +1,36 @@
 <template>
-	<div>
-		<h1>Register here</h1>
-		<input type="email" name="email" v-model="email" placeholder="Your email" />
-		<br/>
-		<input type="password" name="password" v-model="password" placeholder="Your password" />
-		<br/>
-		<button @click="register">Register</button>
-	</div>
+	<v-container>
+		<v-layout column>
+			<v-flex xs12 md8 offset-md2>
+				<div class="white elevation-2">
+					<v-toolbar flat dense class="cyan white--text">
+						<v-toolbar-title>Register</v-toolbar-title>
+					</v-toolbar>
+
+					<v-layout column>
+						<v-fex xs12 class="pt-2 pb-2 pl-4 pr-4">
+							<v-form v-model="valid" ref="form" lazy-validation>
+								<v-text-field
+										label="E-mail"
+										v-model="email"
+										required
+								></v-text-field>
+								<v-text-field
+										label="Password"
+										v-model="password"
+										required
+								></v-text-field>
+							</v-form>
+
+							<div class="error" v-html="error"></div>
+							<v-btn class="cyan white--text" @click="register">Register</v-btn>
+						</v-fex>
+					</v-layout>
+
+				</div>
+			</v-flex>
+		</v-layout>
+	</v-container>
 </template>
 
 <script>
@@ -17,21 +41,29 @@
 		data () {
 			return {
 				email: '',
-				password: ''
+				password: '',
+				error: null,
+                valid: true
 			}
 		},
 		methods: {
 	        async register () {
-	            const response = await AuthenticationService.register({
-					email: this.email,
-					password: this.password
-				})
-				console.log(response.data)
+	            try {
+                    const response = await AuthenticationService.register({
+                        email: this.email,
+                        password: this.password
+                    })
+				} catch (error) {
+	                this.error = error.response.data.error
+				}
+
 			}
 		}
 	}
 </script>
 
 <style scoped>
-
+	.error {
+		color: red;
+	}
 </style>

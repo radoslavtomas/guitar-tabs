@@ -1,6 +1,13 @@
 <template>
   <div id="app">
-    <router-view/>
+    <v-app>
+      <app-header></app-header>
+      <main>
+        <v-container fluid>
+          <router-view/>
+        </v-container>
+      </main>
+    </v-app>
   </div>
 </template>
 
@@ -17,6 +24,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /*margin-top: 60px;*/
 }
 </style>
