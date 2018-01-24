@@ -4,7 +4,7 @@
 			<v-flex xs12 md8 offset-md2>
 				<div class="white elevation-2">
 					<v-toolbar flat dense class="cyan" dark>
-						<v-toolbar-title>Register</v-toolbar-title>
+						<v-toolbar-title>Login</v-toolbar-title>
 					</v-toolbar>
 
 					<v-layout column>
@@ -23,7 +23,7 @@
 							</v-form>
 
 							<div class="error" v-html="error"></div>
-							<v-btn class="cyan" dark @click="register">Register</v-btn>
+							<v-btn class="cyan" dark @click="login">Login</v-btn>
 						</v-flex>
 					</v-layout>
 
@@ -37,7 +37,7 @@
 import AuthenticationService from '@/services/AuthenticationService'
 
 export default {
-  name: 'register',
+  name: 'login',
   data () {
     return {
       email: '',
@@ -47,10 +47,10 @@ export default {
     }
   },
   methods: {
-    async register () {
+    async login () {
       try {
         // eslint-disable-next-line
-        const response = await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style scoped>
-.error {
-	color: red;
-}
+	.error {
+		color: red;
+	}
 </style>

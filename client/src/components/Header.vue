@@ -1,30 +1,30 @@
 <template>
-	<v-toolbar class="cyan white--text">
-		<v-toolbar-title>Title</v-toolbar-title>
+	<v-toolbar class="cyan" dark>
+		<v-toolbar-title>Guitar tab</v-toolbar-title>
 		<v-spacer></v-spacer>
-		<v-toolbar-side-icon class="hidden-md-and-up"></v-toolbar-side-icon>
-		<v-toolbar-items class="hidden-sm-and-down">
-			<v-btn flat>Link One</v-btn>
-			<v-btn flat>Link Two</v-btn>
-			<v-btn flat>Link Three</v-btn>
+		<v-toolbar-items>
+			<v-btn flat dark router to="login">
+				Login
+			</v-btn>
+			<v-btn flat dark router to="register">
+				Sign Up
+			</v-btn>
 		</v-toolbar-items>
 	</v-toolbar>
 </template>
 
 <script>
-	import AuthenticationService from "@/services/AuthenticationService";
+export default {
+  name: 'header',
+  data () {
+    return {
 
-    export default {
-		name: 'header',
-		data () {
-			return {
+    }
+  },
+  methods: {
 
-			}
-		},
-		methods: {
-
-		}
-	}
+  }
+}
 </script>
 
 <style scoped>

@@ -11,6 +11,7 @@ const sequelize = new Sequelize(
     config.db.options
 )
 
+// go through all the files in a directory, filter out index and create db.model
 fs
     .readdirSync(__dirname)
     .filter((file) =>
