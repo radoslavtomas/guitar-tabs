@@ -6,7 +6,7 @@ import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
-import AppHeader from './components/Header.vue'
+import AppHeader from './components/AppHeader.vue'
 
 Vue.config.productionTip = false
 

@@ -1,6 +1,13 @@
 <template>
 	<v-toolbar class="cyan" dark>
-		<v-toolbar-title>Guitar tab</v-toolbar-title>
+		<v-toolbar-title>
+			Guitar Tabs
+		</v-toolbar-title>
+		<v-toolbar-items class="ml-2">
+			<v-btn flat dark>
+			Browse
+		</v-btn>
+		</v-toolbar-items>
 		<v-spacer></v-spacer>
 		<v-toolbar-items>
 			<v-btn flat dark router to="login">
